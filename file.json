@@ -1,0 +1,20 @@
+{
+    "BaseModel.53ba9b70-d9d1-4696-980d-bafc4b3c2a1f": {
+        "id": "53ba9b70-d9d1-4696-980d-bafc4b3c2a1f",
+        "created_at": "2024-08-27T06:18:10.034496",
+        "updated_at": "2024-08-27T06:18:10.034949",
+        "__class__": "BaseModel"
+    },
+    "User.aaf4bceb-599e-478a-bbb7-e8fcfd5887fc": {
+        "id": "aaf4bceb-599e-478a-bbb7-e8fcfd5887fc",
+        "created_at": "2024-08-27T07:27:36.238097",
+        "updated_at": "2024-08-27T07:27:36.238207",
+        "__class__": "User"
+    },
+    "Task.368cb5b0-b9b5-40fc-be77-27bdee6f9437": {
+        "id": "368cb5b0-b9b5-40fc-be77-27bdee6f9437",
+        "created_at": "2024-08-27T10:04:25.146684",
+        "updated_at": "2024-08-27T10:04:25.146816",
+        "__class__": "Task"
+    }
+}
