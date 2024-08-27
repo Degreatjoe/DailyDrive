@@ -8,6 +8,7 @@ class User(BaseModel):
     Defines user-specific attributes.
     """
     email = ""
+    username = ""
     password = ""
     first_name = ""
     last_name = ""
