@@ -62,3 +62,11 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " w3-white";
 }
+
+function updateProgress(percentage, elementId) {
+  let element = document.getElementById(elementId);
+  element.style.width = `${percentage}%`;
+  element.textContent = `${percentage}%`;
+}
+
+updateProgress(`${Math.round(3/3 * 100)}`, 'daily-excersis-progress');
