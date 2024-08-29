@@ -1,6 +1,13 @@
 #!/usr/bin/python3
-from models.engine.file_storage import FileStorage
+from os import getenv
 
-# Create a unique FileStorage instance for your application
-storage = FileStorage()
+# Conditional import based on the environment variable
+if getenv('DD_TYPE_STORAGE') == 'db':
+    from models.engine.db_storage import DBStorage
+    storage = DBStorage()
+else:
+    from models.engine.file_storage import FileStorage
+    storage = FileStorage()
+
+# Reload storage after initializing it
 storage.reload()

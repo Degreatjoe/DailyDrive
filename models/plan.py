@@ -1,13 +1,28 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+import models
+from os import getenv
+import sqlalchemy
+from sqlalchemy import Column, Integer, ForeignKey, Date
+from sqlalchemy.orm import relationship
 
-class Plan(BaseModel):
+class Plan(BaseModel, Base):
     """
     Plan model representing a user's daily or weekly plan.
     """
-    date = None  # Date object for the plan
-    tasks = []  # List of task IDs associated with this plan
-    user_id = ""
+    __tablename__ = 'plans'
+
+    date = Column(Date, nullable=False)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+
+    user = relationship("User", backref="plans")
 
     def __init__(self, *args, **kwargs):
+        """
+        Initialize Plan instance.
+        """
+        if getenv('DD_TYPE_STORAGE') != 'db':
+            self.date = kwargs.get('date', None)
+            self.tasks = kwargs.get('tasks', [])  # List of task IDs
+            self.user_id = kwargs.get('user_id', "")
         super().__init__(*args, **kwargs)

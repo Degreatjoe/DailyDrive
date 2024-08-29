@@ -1,27 +1,59 @@
 {
-    "BaseModel.53ba9b70-d9d1-4696-980d-bafc4b3c2a1f": {
-        "id": "53ba9b70-d9d1-4696-980d-bafc4b3c2a1f",
-        "created_at": "2024-08-27T06:18:10.034496",
-        "updated_at": "2024-08-27T06:18:10.034949",
-        "__class__": "BaseModel"
-    },
     "User.aaf4bceb-599e-478a-bbb7-e8fcfd5887fc": {
+        "email": "",
+        "username": "",
+        "password": "",
+        "first_name": "",
+        "last_name": "",
         "id": "aaf4bceb-599e-478a-bbb7-e8fcfd5887fc",
         "created_at": "2024-08-27T07:27:36.238097",
         "updated_at": "2024-08-27T07:27:36.238207",
         "__class__": "User"
     },
     "Task.368cb5b0-b9b5-40fc-be77-27bdee6f9437": {
+        "title": "",
+        "description": "",
+        "start_time": null,
+        "end_time": null,
+        "category": "",
+        "status": "",
+        "user_id": "",
         "id": "368cb5b0-b9b5-40fc-be77-27bdee6f9437",
         "created_at": "2024-08-27T10:04:25.146684",
         "updated_at": "2024-08-27T10:04:25.146816",
         "__class__": "Task"
     },
     "User.62f3676a-2d52-47ec-8472-a438d14317f0": {
+        "email": "",
+        "username": "",
+        "password": "",
+        "first_name": "Great",
+        "last_name": "",
         "id": "62f3676a-2d52-47ec-8472-a438d14317f0",
         "created_at": "2024-08-27T22:06:22.686082",
         "updated_at": "2024-08-27T22:07:10.565655",
+        "__class__": "User"
+    },
+    "User.37a7f812-3d43-4080-9e83-be74ba894d84": {
+        "email": "",
+        "username": "dejoesent",
+        "password": "",
         "first_name": "Great",
+        "last_name": "Joseph",
+        "id": "37a7f812-3d43-4080-9e83-be74ba894d84",
+        "created_at": "2024-08-28T12:25:40.057381",
+        "updated_at": "2024-08-28T12:25:40.057563",
+        "__class__": "User"
+    },
+    "User.2018588a-74e8-43e0-9333-594c56b11d40": {
+        "email": "",
+        "username": "",
+        "password": "",
+        "first_name": "",
+        "last_name": "",
+        "id": "2018588a-74e8-43e0-9333-594c56b11d40",
+        "created_at": "2024-08-29T20:04:54.624061",
+        "updated_at": "2024-08-29T20:04:54.624161",
         "__class__": "User"
     }
 }

@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+import re
 import cmd
 from models.base_model import BaseModel
 from models import storage
-from models.user import User
 
 class DailyDriveCommand(cmd.Cmd):
     """
@@ -10,18 +10,64 @@ class DailyDriveCommand(cmd.Cmd):
     Implements basic commands and operations for the models.
     """
     prompt = "(DailyDrive) "
-    classes = storage.classes
+
+    def __init__(self):
+        super().__init__()
+        storage.reload()  # Load the storage
+        self.classes = storage.classes  # Set classes to the loaded dictionary
+
+    def parse_params(self, params):
+        """Parses parameters in the format key=value."""
+        parsed = {}
+        for param in params:
+            key_value = param.split('=', 1)
+            if len(key_value) != 2:
+                continue
+
+            key = key_value[0].strip()
+            value = key_value[1].strip()
+
+            # Remove surrounding quotes and escape backslashes in strings
+            if value.startswith('"') and value.endswith('"'):
+                value = value[1:-1].replace('\\"', '"').replace('_', ' ')
+            else:
+                # Convert value to float or int if applicable
+                if re.match(r"^\d+\.\d+$", value):
+                    value = float(value)
+                elif value.isdigit():
+                    value = int(value)
+
+            parsed[key] = value
+        return parsed
 
     def do_create(self, arg):
-        """Creates a new instance of a class, saves it, and prints the id."""
+        """Creates a new instance of a class with given parameters, saves it, and prints the id."""
         if not arg:
             print("** class name missing **")
-        elif arg not in self.classes:
+            return
+
+        args = arg.split()
+        class_name = args[0]
+
+        if class_name not in self.classes:
             print("** class doesn't exist **")
-        else:
-            new_instance = self.classes[arg]()
-            new_instance.save()
-            print(new_instance.id)
+            return
+
+        # Create a new instance of the class
+        try:
+            new_instance = self.classes[class_name]()
+        except Exception as e:
+            print(f"** error creating instance: {e} **")
+            return
+
+        # Parse parameters
+        params = self.parse_params(args[1:])
+        for key, value in params.items():
+            setattr(new_instance, key, value)
+
+        # Save and print the id
+        new_instance.save()
+        print(new_instance.id)
 
     def do_show(self, arg):
         """Prints the string representation of an instance based on the class name and id."""
@@ -75,12 +121,14 @@ class DailyDriveCommand(cmd.Cmd):
         elif arg not in self.classes:
             print("** class doesn't exist **")
         else:
-            count = sum(1 for obj in storage.all().values() if obj.__class__.__name__ == arg)
+            count = sum(1 for obj in storage.all().values()
+                        if obj.__class__.__name__ == arg)
             print(count)
 
     def do_update(self, arg):
         """
-        Updates an instance based on the class name and id by adding or updating attribute.
+        Updates an instance based on the class name and
+        id by adding or updating attribute.
         Usage: update <class name> <id> <attribute name> "<attribute value>"
         """
         args = arg.split()
@@ -115,49 +163,6 @@ class DailyDriveCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
-    def do_update_dict(self, arg):
-        """
-        Updates an instance based on the class name and id with a dictionary.
-        Usage: update_dict <class name> <id> <dictionary representation>
-        """
-        args = arg.split(maxsplit=2)
-        if len(args) < 2:
-            print("** class name missing **" if len(args) < 1 else "** instance id missing **")
-        elif args[0] not in self.classes:
-            print("** class doesn't exist **")
-        elif len(args) == 2:
-            print("** dictionary representation missing **")
-        else:
-            key = f"{args[0]}.{args[1]}"
-            if key not in storage.all():
-                print("** no instance found **")
-            else:
-                obj = storage.all()[key]
-                try:
-                    update_dict = eval(args[2])
-                except SyntaxError:
-                    print("** invalid dictionary representation **")
-                    return
-
-                if not isinstance(update_dict, dict):
-                    print("** dictionary representation missing **")
-                    return
-
-                for attr_name, attr_value in update_dict.items():
-                    if attr_name in ["id", "created_at", "updated_at"]:
-                        continue
-                    # Type casting the attribute value
-                    if isinstance(attr_value, str):
-                        if attr_value.isdigit():
-                            attr_value = int(attr_value)
-                        else:
-                            try:
-                                attr_value = float(attr_value)
-                            except ValueError:
-                                pass
-                    setattr(obj, attr_name, attr_value)
-                obj.save()
-
     def do_quit(self, arg):
         """Quit command to exit the program."""
         return True
@@ -169,17 +174,11 @@ class DailyDriveCommand(cmd.Cmd):
 
     def emptyline(self):
         """
-        Overrides the default behavior of repeating the last command when an empty line is entered.
+        Overrides the default behavior of repeating the last command
+        when an empty line is entered.
         """
         pass
 
-    def preloop(self):
-        """Initialize class storage."""
-        storage.reload()
-
-    def postloop(self):
-        """Save storage state before quitting."""
-        storage.save()
 
 if __name__ == '__main__':
     DailyDriveCommand().cmdloop()
