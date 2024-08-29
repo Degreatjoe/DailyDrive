@@ -1,0 +1,141 @@
+body {
+    background-color: #1d1d1d;
+    color: #e1e1e1;
+    font-family: Arial, sans-serif;
+}
+
+.schedule-container {
+    width: 700px;
+    margin: 20px right;
+    background-color: #383434;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.schedule-header {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    color: #ff6700;
+    border-bottom: 1px solid #444;
+}
+
+.schedule-time {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.2s ease;
+}
+
+.schedule-time:last-child {
+    border-bottom: none;
+}
+
+.schedule-time:hover {
+    background-color: #333;
+    cursor: pointer;
+}
+
+.schedule-time.active {
+    background-color: #ff6700;
+    color: #1d1d1d;
+}
+footer {
+  position: move;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #1d1d1d;
+  border-top: 1px solid #111010;
+}
+/* the styles that handles sliding in the webpage */
+.mySlides {
+    display:none;
+}
+.w3-left, .w3-right, .w3-badge {
+    cursor:pointer;
+}
+.w3-badge {
+    height:13px;
+    width:13px;
+    padding:0;
+}
+
+.slide-buttons {
+    display: block;
+    width: fit-content;
+    /* background-color: red; */
+    padding: 1rem 0 3rem 0;
+    display: grid;
+    justify-content: center;
+}
+
+.w3-display-bottommiddle {
+    display: block;
+}
+
+/* HOME PAGE STYLING */
+* {
+    /* border: 1px solid red; */
+}
+.main {
+    display: grid;
+    grid-template-columns: .1fr 1fr .1fr;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.w3-hover-text-khaki {
+    color: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+.w3-hover-text-khaki:hover {
+    color: white;
+}
+
+.goal-holder {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.goal-holder h1 {
+    grid-column: 1/3;
+}
+.goal-holder section {
+    cursor: pointer;
+}
+
+.progress-bar {
+    background-color: #555;
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    display: block;
+    align-content: center;
+    font-size: 1.5em;
+}
+.progress-bar span {
+    background-color: #cf1e1e;
+    height: 40px;
+    width: 70%;
+    display: block;
+    text-align: center;
+}
+.goal-holder button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: gray;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
