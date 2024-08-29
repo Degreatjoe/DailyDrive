@@ -14,4 +14,5 @@ Below are the basic feature of the project, subsequently, more features would be
 
 ## AUTHORS
 [Great Joseph:](https://x.com/De_GreatJoe)
+
 [Daniel C. Opute](https://github.com/danisms)
