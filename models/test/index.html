@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->    <link rel="stylesheet" href="3-header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="3-header.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="icon.png" type="image/png">
     <title>Interactive Schedule</title>
@@ -12,30 +14,91 @@
         <div class="logo">
         </div>
         <div class="title"><h1>DailyDrive</h1></div>
-    </header>  
-    <div class="schedule-container">
-        <div class="schedule-header" id="schedule-date">All day</div>
-        <div class="schedule-time" data-time="07:00">07:00</div>
-        <div class="schedule-time" data-time="08:00">08:00</div>
-        <div class="schedule-time" data-time="09:00">09:00</div>
-        <div class="schedule-time" data-time="10:00">10:00</div>
-        <div class="schedule-time" data-time="11:00">11:00</div>
-        <div class="schedule-time" data-time="12:00">12:00</div>
-        <div class="schedule-time" data-time="13:00">13:00</div>
-        <div class="schedule-time" data-time="14:00">14:00</div>
-        <div class="schedule-time" data-time="15:00">15:00</div>
-        <div class="schedule-time" data-time="16:00">16:00</div>
-        <div class="schedule-time" data-time="17:00">17:00</div>
-        <div class="schedule-time" data-time="18:00">18:00</div>
-        <div class="schedule-time" data-time="19:00">19:00</div>
-        <div class="schedule-time" data-time="20:00">20:00</div>
-        <div class="schedule-time" data-time="21:00">21:00</div>
-        <div class="schedule-time" data-time="22:00">22:00</div>
-        <div class="schedule-time" data-time="23:00">23:00</div>
+    </header>
+    <div class="main">
+      <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+      
+      <div class="w3-content w3-display-container" style="width: 100%;">
+        <div class="mySlides" style="width:100%">
+          <div class="goal-holder">
+            <h1>Daily Goal</h1>
+            <section>
+              <h2>Excersis: <span>0/3</span></h2>
+              <div class="progress-bar"><span id="daily-excersis-progress"></span></div>
+            </section>
+            <section>
+              <h2>Scripture Study: <span>0/4</span></h2>
+              <div class="progress-bar"><span id="daily-scripture-study-progress"></span></div>
+            </section>
+            <section>
+              <h2>Books Read: <span>0/7</span></h2>
+              <div class="progress-bar"><span id="daily-books-read-progress"></span></div>
+            </section>
+            <section>
+              <h2>Add Goal</h2>
+              <button id="add-daily-goal-btn">ADD+</button>
+            </section>
+          </div>
+        </div>
+          
+        <div class="mySlides" style="width:100%">
+          <div class="goal-holder">
+            <h1>Weely Goal</h1>
+            <section>
+              <h2>Excersis</h2>
+              <div class="progress-bar"><span id="weekly-excersis-progress"></span></div>
+            </section>
+            <section>
+              <h2>Scripture Study</h2>
+              <div class="progress-bar"><span id="weekly-scripture-study-progress"></span></div>
+            </section>
+            <section>
+              <h2>Books Read</h2>
+              <div class="progress-bar"><span id="weekly-books-read-progress"></span></div>
+            </section>
+            <section>
+              <h2>Add Goal</h2>
+              <button id="add-weekly-goal-btn">ADD+</button>
+            </section>
+          </div>
+        </div>
+        <div class="mySlides" style="width:100%">
+          <div class="goal-holder">
+            <h1>Monthly Goal</h1>
+            <section>
+              <h2>Excersis</h2>
+              <div class="progress-bar"><span id="monthly-excersis-progress"></span></div>
+            </section>
+            <section>
+              <h2>Scripture Study</h2>
+              <div class="progress-bar"><span id="monthly-scripture-study-progress"></span></div>
+            </section>
+            <section>
+              <h2>Books Read</h2>
+              <div class="progress-bar"><span id="monthly-books-read-progress"></span></div>
+            </section>
+            <section>
+              <h2>Add Goal</h2>
+              <button id="add-monthly-goal-btn">ADD+</button>
+            </section>
+          </div>
+        </div>
+        <div class="slide-buttons">
+          <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
     </div>
+
     <script src="script.js"></script>
     <footer>
       <p>&copy; <span id="year"></span> DailyDrive. All rights reserved.</p>
     </footer>
 </body>
 </html>
+  
