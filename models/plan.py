@@ -22,6 +22,7 @@ class Plan(BaseModel, Base):
         Initialize Plan instance.
         """
         if getenv('DD_TYPE_STORAGE') != 'db':
+            from datetime import date
             self.date = kwargs.get('date', None)
             self.tasks = kwargs.get('tasks', [])  # List of task IDs
             self.user_id = kwargs.get('user_id', "")
