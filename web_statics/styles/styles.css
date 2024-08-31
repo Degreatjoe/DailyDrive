@@ -3,7 +3,6 @@ body {
     color: #e1e1e1;
     font-family: Arial, sans-serif;
 }
-
 .schedule-container {
     width: 700px;
     margin: 20px right;
@@ -75,17 +74,18 @@ footer {
 }
 
 /* HOME PAGE STYLING */
-* {
-    /* border: 1px solid red; */
-}
-.main {
+#main {
     display: grid;
     grid-template-columns: .1fr 1fr .1fr;
     align-items: center;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     justify-items: center;
 }
+    /* Add a class to move the main content area to the right when the sidebar is opened */
+.sidebar-open #main {
+    transform: translateX(250px); /* Move the main content area 250px to the right */
+  }
 
 .w3-hover-text-khaki {
     color: rgba(0, 0, 0, 0);

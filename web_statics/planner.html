@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->    <link rel="stylesheet" href="3-header.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="icon.png" type="image/png">
-    <title>Interactive Schedule</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/sidebar.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-        </div>
-        <div class="title"><h1>DailyDrive</h1></div>
-    </header>  
-    <div class="schedule-container">
-        <div class="schedule-header" id="schedule-date">All day</div>
-        <div class="schedule-time" data-time="07:00">07:00</div>
-        <div class="schedule-time" data-time="08:00">08:00</div>
-        <div class="schedule-time" data-time="09:00">09:00</div>
-        <div class="schedule-time" data-time="10:00">10:00</div>
-        <div class="schedule-time" data-time="11:00">11:00</div>
-        <div class="schedule-time" data-time="12:00">12:00</div>
-        <div class="schedule-time" data-time="13:00">13:00</div>
-        <div class="schedule-time" data-time="14:00">14:00</div>
-        <div class="schedule-time" data-time="15:00">15:00</div>
-        <div class="schedule-time" data-time="16:00">16:00</div>
-        <div class="schedule-time" data-time="17:00">17:00</div>
-        <div class="schedule-time" data-time="18:00">18:00</div>
-        <div class="schedule-time" data-time="19:00">19:00</div>
-        <div class="schedule-time" data-time="20:00">20:00</div>
-        <div class="schedule-time" data-time="21:00">21:00</div>
-        <div class="schedule-time" data-time="22:00">22:00</div>
-        <div class="schedule-time" data-time="23:00">23:00</div>
-    </div>
-    <script src="script.js"></script>
-    <footer>
-      <p>&copy; <span id="year"></span> DailyDrive. All rights reserved.</p>
-    </footer>
+
+  <!-- sidebar icon at the header position -->
+  <header>
+    <button class="openbtn" onclick="openNav()">☰</button>
+  </header>
+
+  <!-- sidebar -->
+  <div id="mySidebar" class="sidebar">
+    <img src="image/icon.png" alt="Sidebar Image">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- The main content implementation -->
+  <div id="main">
+    <h2>Collapsed Sidebar</h2>
+    <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+  </div>
+
+  <script src="scipts/sidebar.js"></script>
+
 </body>
 </html>

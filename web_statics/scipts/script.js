@@ -68,5 +68,4 @@ function updateProgress(percentage, elementId) {
   element.style.width = `${percentage}%`;
   element.textContent = `${percentage}%`;
 }
-
 updateProgress(`${Math.round(3/3 * 100)}`, 'daily-excersis-progress');
