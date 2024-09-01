@@ -3,12 +3,14 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/sidebar.css">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
   <!-- sidebar icon at the header position -->
   <header>
     <button class="openbtn" onclick="openNav()">☰</button>
+    <a href="index.html"><h1>DailyDrive</h1></a>
   </header>
 
   <!-- sidebar -->
@@ -17,8 +19,8 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="index.html">Home</a>
     <a href="planner.html">Planner</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
   </div>
 
   <!-- The main content implementation -->
@@ -26,8 +28,14 @@
     <h2>Collapsed Sidebar</h2>
     <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
   </div>
-
+<!-- import script for sidebar -->
   <script src="scipts/sidebar.js"></script>
+  <!-- import the basic structure script -->
+  <script src="scipts/script.js"></script>
+
+  <footer>
+    <p>&copy; <span id="year"></span> DailyDrive. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
