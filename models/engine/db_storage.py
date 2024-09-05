@@ -3,6 +3,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 import os
+from models.user import User
+from models.category import Category
+from models.goal import Goal
+from models.note import Note
+from models.task import Task
+from models.plan import Plan
 
 class DBStorage:
     """This class manages storage of models in a MySQL database using SQLAlchemy."""
@@ -27,14 +33,28 @@ class DBStorage:
 
         self.__session = None
 
+    @property
+    def classes(self):
+        """Returns a dictionary of class names to class objects."""
+        return {
+            "User": User,
+            "Category": Category,
+            "Goal": Goal,
+            "Note": Note,
+            "Task": Task,
+            "Plan": Plan
+        }
+
     def all(self, cls=None):
         """Return a dictionary of all objects."""
         if cls:
             if isinstance(cls, str):
-                cls = self.classes[cls]
+                cls = self.classes.get(cls)
             objs = self.__session.query(cls).all()
         else:
-            objs = self.__session.query(Base).all()
+            objs = []
+            for cls in self.classes.values():
+                objs.extend(self.__session.query(cls).all())
 
         all_objs = {}
         for obj in objs:
@@ -57,7 +77,6 @@ class DBStorage:
 
     def reload(self):
         """Create all tables and create a new session."""
-        from models import state, city, amenity, place, review  # Import all models here
         Base.metadata.create_all(self.__engine)
         session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(session_factory)

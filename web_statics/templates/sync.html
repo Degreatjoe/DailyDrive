@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/sidebar.css">
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 
   <!-- sidebar -->
   <div id="mySidebar" class="sidebar">
-    <img src="image/icon.png" alt="Sidebar Image">
+    <img src="../image/icon.png" alt="Sidebar Image">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="index.html">Home</a>
     <a href="planner.html">Planner</a>
@@ -24,14 +24,18 @@
   </div>
 
   <!-- The main content implementation -->
-  <div id="main">
+  <div id="main" class="main">
+
+    <div class="img container">
+        <img src="../image/img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
     <h2>Collapsed Sidebar</h2>
     <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
   </div>
 <!-- import script for sidebar -->
-  <script src="scipts/sidebar.js"></script>
+  <script src="../scipts/sidebar.js"></script>
   <!-- import the basic structure script -->
-  <script src="scipts/script.js"></script>
+  <script src="../scipts/script.js"></script>
 
   <footer>
     <p>&copy; <span id="year"></span> DailyDrive. All rights reserved.</p>

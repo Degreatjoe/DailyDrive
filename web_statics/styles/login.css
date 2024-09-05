@@ -1,5 +1,22 @@
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+form {
+  /* max-width: 1000px; */
+  /* border: 3px solid #efe3e3; */
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  align-self: center;
+  padding: 30px;
+
+  border: 1px solid #000;
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
 
 input[type=text], input[type=password] {
   width: 50%;
@@ -10,6 +27,15 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+/* #main {
+  display: grid;
+  grid-template-columns: .1fr 1fr .1fr;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  justify-items: center;
+} */
+
 button {
   background-color: #04AA6D;
   color: white;
@@ -17,7 +43,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
 }
 
 button:hover {
@@ -32,10 +58,10 @@ button:hover {
 
 .imgcontainer {
   text-align: center;
-  width: 50%;
-  /* margin: 24px 0 12px 0; */
-  margin: 36px 36px 36px 64px;
-  padding: 15px;
+  width: 100%;
+  margin: 24px 0 12px 0;
+  /* margin: 36px 36px 36px 64px;
+  padding: 15px; */
 }
 
 img.avatar {
@@ -45,8 +71,8 @@ img.avatar {
 
 .container {
   padding: 15px;
-  margin: 36px 36px 36px 64px;
-  width: 50%;
+  margin: 18px 18px 18px 32px;
+  width: 90%;
   align-content: center;
 }
 
@@ -63,5 +89,16 @@ span.psw {
   }
   .cancelbtn {
      width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .form {
+    border-width: 100%; /* adjust the width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    border-width: 100%; /* adjust the width for even smaller screens */
   }
 }
